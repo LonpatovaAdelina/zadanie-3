@@ -1,0 +1,26 @@
+#include <iostream>using namespace std;
+typedef unsigned long long Druz;
+Druz Summ(Druz);
+bool Druzni(Druz, Druz);
+int main()
+{
+    const Druz left = 1;
+    const Druz right = 10000;
+    for (Druz a = left; a <= right; ++a)
+        for (Druz b = a + 1; b <= right; ++b)
+            if (Druzni(a, b))
+                std::cout << a << "\t" << b << std::endl;
+    return 0;
+}
+Druz Summ(Druz num)
+{
+    Druz sum = 0;
+    for (Druz d = 1; d < num / 2 + 1; ++d)
+        if (num % d == 0)
+            sum += d;
+    return sum;
+}
+bool Druzni(Druz num1, Druz num2)
+{
+    return Summ(num1) == num2 && Summ(num2) == num1;
+}
