@@ -1,0 +1,29 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int len_n(int n)
+{
+	int k = 0;
+	while (n > 0)
+	{
+		n = n / 10;
+		k++;
+	}
+	return k;
+}
+void chislo(int n, int k)
+{
+	while (k > 0)
+	{
+		k--;
+		cout << n / int(pow(10, k))<<endl;
+		n = n % int(pow(10, k));
+	}
+}
+int main()
+{
+	int n;
+	cin >> n;
+	chislo(n, len_n(n));
+	return 0;
+}
