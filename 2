@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int len_n(int n)
+{
+	int k = 0;
+	while (n > 0)
+	{
+		n = n / 10;
+		k++;
+	}
+	return k;
+}
+void des(int n, int k)
+{
+	int s = 0, ch = 0;
+	while (k > 0)
+	{
+		k--;
+		ch = n / int(pow(10, k));
+		n = n % int(pow(10, k));
+		if (ch==1){ s += int(pow(2, k)); }
+
+	}
+	cout << s;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	des(n, len_n(n));
+	return 0;
+}
